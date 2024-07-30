@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إدخال بيانات الطالب</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            text-align: right;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 50%;
+            margin: auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .container input, .container select {
+            margin: 10px 0;
+            padding: 10px;
+            width: 80%;
+        }
+        .container button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>إدخال بيانات الطالب</h2>
+        <input type="text" id="seatNumber" placeholder="رقم الجلوس">
+        <input type="text" id="name" placeholder="الاسم">
+        <input type="text" id="school" placeholder="اسم المدرسة">
+        <select id="division">
+            <option value="">اختر الشعبة</option>
+            <option value="علمي علوم">علمي علوم</option>
+            <option value="علمي رياضة">علمي رياضة</option>
+            <option value="أدبي">أدبي</option>
+        </select>
+        <button onclick="submitForm()">إدخال</button>
+    </div>
+
+    <script>
+        function submitForm() {
+            const seatNumber = document.getElementById('seatNumber').value;
+            const name = document.getElementById('name').value;
+            const school = document.getElementById('school').value;
+            const division = document.getElementById('division').value;
+
+            if(seatNumber && name && school && division) {
+                localStorage.setItem('seatNumber', seatNumber);
+                localStorage.setItem('name', name);
+                localStorage.setItem('school', school);
+                localStorage.setItem('division', division);
+                window.location.href = 'results.html';
+            } else {
+                alert('يرجى إدخال جميع البيانات');
+            }
+        }
+    </script>
+</body>
+</html>
