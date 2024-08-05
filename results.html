@@ -209,6 +209,16 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
+            const inputs = document.querySelectorAll('input[readonly]');
+            inputs.forEach(input => {
+                input.addEventListener('click', function() {
+                    input.removeAttribute('readonly');
+                });
+                input.addEventListener('blur', function() {
+                    input.setAttribute('readonly', true);
+                });
+            });
+
             const seatNumber = localStorage.getItem('seatNumber');
             const name = localStorage.getItem('name');
             const school = localStorage.getItem('school');
@@ -225,88 +235,17 @@
                     document.getElementById('arabic').value = grades.arabic;
                     document.getElementById('firstForeignLanguage').value = grades.firstForeignLanguage;
                     document.getElementById('secondForeignLanguage').value = grades.secondForeignLanguage;
-                    document.getElementById('chemistry').value = grades.chemistry;
-                    document.getElementById('biology').value = grades.biology;
-                    document.getElementById('geology').value = grades.geology;
-                    document.getElementById('physics').value = grades.physics;
                     document.getElementById('pureMath').value = grades.pureMath;
-                    document.getElementById('appliedMath').value = grades.appliedMath;
                     document.getElementById('history').value = grades.history;
                     document.getElementById('geography').value = grades.geography;
                     document.getElementById('philosophy').value = grades.philosophy;
                     document.getElementById('psychology').value = grades.psychology;
-                    document.getElementById('totalGrades').value = grades.totalGrades;
-                } else {
-                    const grades = {};
-                    grades.arabic = Math.floor(Math.random() * (68 - 63 + 1)) + 63;
-                    grades.firstForeignLanguage = Math.floor(Math.random() * (46 - 40 + 1)) + 40;
-                    grades.secondForeignLanguage = Math.floor(Math.random() * (36 - 32 + 1)) + 32;
-
-                    if (division === "علمي علوم") {
-                        grades.chemistry = Math.floor(Math.random() * (48 - 41 + 1)) + 41;
-                        grades.physics = Math.floor(Math.random() * (45 - 38 + 1)) + 38;
-                        grades.biology = Math.floor(Math.random() * (46 - 43 + 1)) + 43;
-                        grades.geology = Math.floor(Math.random() * (55 - 50 + 1)) + 50;
-                        grades.pureMath = "غير مقرر";
-                        grades.appliedMath = "غير مقرر";
-                        grades.history = "غير مقرر";
-                        grades.geography = "غير مقرر";
-                        grades.philosophy = "غير مقرر";
-                        grades.psychology = "غير مقرر";
-                    } else if (division === "علمي رياضة") {
-                        grades.chemistry = Math.floor(Math.random() * (44 - 39 + 1)) + 39;
-                        grades.physics = Math.floor(Math.random() * (45 - 38 + 1)) + 38;
-                        grades.pureMath = Math.floor(Math.random() * (46 - 40 + 1)) + 40;
-                        grades.appliedMath = Math.floor(Math.random() * (55 - 50 + 1)) + 50;
-                        grades.biology = "غير مقرر";
-                        grades.geology = "غير مقرر";
-                        grades.history = "غير مقرر";
-                        grades.geography = "غير مقرر";
-                        grades.philosophy = "غير مقرر";
-                        grades.psychology = "غير مقرر";
-                    } else if (division === "أدبي") {
-                        grades.history = Math.floor(Math.random() * (48 - 42 + 1)) + 42;
-                        grades.geography = Math.floor(Math.random() * (45 - 40 + 1)) + 40;
-                        grades.philosophy = Math.floor(Math.random() * (55 - 50 + 1)) + 50;
-                        grades.psychology = Math.floor(Math.random() * (46 - 40 + 1)) + 40;
-                        grades.chemistry = "غير مقرر";
-                        grades.biology = "غير مقرر";
-                        grades.geology = "غير مقرر";
-                        grades.pureMath = "غير مقرر";
-                        grades.appliedMath = "غير مقرر";
-                        grades.physics = "غير مقرر";
-                    }
-
-                    const totalGrades = grades.arabic + grades.firstForeignLanguage + grades.secondForeignLanguage +
-                                        (grades.chemistry !== "غير مقرر" ? grades.chemistry : 0) +
-                                        (grades.physics !== "غير مقرر" ? grades.physics : 0) +
-                                        (grades.biology !== "غير مقرر" ? grades.biology : 0) +
-                                        (grades.geology !== "غير مقرر" ? grades.geology : 0) +
-                                        (grades.pureMath !== "غير مقرر" ? grades.pureMath : 0) +
-                                        (grades.appliedMath !== "غير مقرر" ? grades.appliedMath : 0) +
-                                        (grades.history !== "غير مقرر" ? grades.history : 0) +
-                                        (grades.geography !== "غير مقرر" ? grades.geography : 0) +
-                                        (grades.philosophy !== "غير مقرر" ? grades.philosophy : 0) +
-                                        (grades.psychology !== "غير مقرر" ? grades.psychology : 0);
-
-                    grades.totalGrades = totalGrades;
-
-                    document.getElementById('arabic').value = grades.arabic;
-                    document.getElementById('firstForeignLanguage').value = grades.firstForeignLanguage;
-                    document.getElementById('secondForeignLanguage').value = grades.secondForeignLanguage;
                     document.getElementById('chemistry').value = grades.chemistry;
                     document.getElementById('biology').value = grades.biology;
                     document.getElementById('geology').value = grades.geology;
-                    document.getElementById('physics').value = grades.physics;
-                    document.getElementById('pureMath').value = grades.pureMath;
                     document.getElementById('appliedMath').value = grades.appliedMath;
-                    document.getElementById('history').value = grades.history;
-                    document.getElementById('geography').value = grades.geography;
-                    document.getElementById('philosophy').value = grades.philosophy;
-                    document.getElementById('psychology').value = grades.psychology;
+                    document.getElementById('physics').value = grades.physics;
                     document.getElementById('totalGrades').value = grades.totalGrades;
-
-                    localStorage.setItem(`grades_${seatNumber}`, JSON.stringify(grades));
                 }
             }
         });
