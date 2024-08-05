@@ -1,254 +1,629 @@
 <!DOCTYPE html>
+
 <html lang="ar">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>نتيجة الطالب</title>
+
     <style>
+
         body {
+
             font-family: Arial, sans-serif;
+
             direction: rtl;
+
             text-align: right;
+
             background-color: #f5f5f5;
+
             margin: 0;
+
             padding: 0;
+
         }
+
         .container {
+
             width: 80%;
+
             margin: auto;
+
             padding: 20px;
+
             background-color: white;
+
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
         }
+
         .header {
+
             text-align: center;
+
             margin-bottom: 20px;
+
         }
+
         .header img {
+
             max-width: 150px;
+
             height: auto;
+
         }
+
         .header h2 {
+
             margin: 10px 0;
+
             color: black;
+
         }
+
         .content {
+
             display: flex;
+
             justify-content: space-between;
+
         }
+
         .student-info, .student-grades {
+
             width: 48%;
+
         }
+
         table {
+
             width: 100%;
+
             border-collapse: collapse;
+
         }
+
         th, td {
+
             border: 1px solid #ddd;
+
             padding: 8px;
+
             text-align: center;
+
         }
+
         th {
+
             background-color: #f2f2f2;
+
         }
+
         td input {
+
             width: 100%;
+
             border: none;
+
             text-align: center;
+
             background-color: transparent;
+
         }
+
         .student-info th, .student-info td {
+
             background-color: #e3f2fd;
+
         }
+
         .student-info input {
+
             background-color: #e3f2fd;
+
         }
+
         .extra-fields {
+
             margin-top: 20px;
+
         }
+
         .extra-fields div {
+
             margin-bottom: 10px;
+
         }
+
         .color-row:nth-child(even) td {
+
             background-color: #e9f7ef;
+
         }
+
         .color-row:nth-child(odd) td {
+
             background-color: #f9ebea;
+
         }
+
         .contact-section {
+
             margin-top: 20px;
+
             text-align: center;
+
         }
+
         .contact-section a {
+
             display: inline-block;
+
             padding: 10px 20px;
+
             color: white;
+
             background-color: #007bff;
+
             text-decoration: none;
+
             border-radius: 5px;
+
         }
+
         .contact-section a:hover {
+
             background-color: #0056b3;
+
         }
+
         @media screen and (max-width: 768px) {
+
             .content {
+
                 flex-direction: column;
+
             }
+
             .student-info, .student-grades {
+
                 width: 100%;
+
                 margin-bottom: 20px;
+
             }
+
         }
+
     </style>
+
 </head>
+
 <body>
+
     <div class="container">
+
         <div class="header">
+
             <img src="IMG_20240723_171908_861.jpg" alt="وزارة التربية والتعليم">
+
             <h2>نتائج الصف الثالث الثانوي</h2>
+
         </div>
+
         <form>
+
             <div class="content">
+
                 <div class="student-info">
+
                     <table>
+
                         <tr>
+
                             <th>رقم الجلوس</th>
+
                             <td><input type="text" id="seatNumber" name="seatNumber" readonly></td>
+
                         </tr>
+
                         <tr>
+
                             <th>الاسم</th>
+
                             <td><input type="text" id="name" name="name" readonly></td>
+
                         </tr>
+
                         <tr>
+
                             <th>المدرسة</th>
+
                             <td><input type="text" id="school" name="school" readonly></td>
+
                         </tr>
+
                         <tr>
+
                             <th>الشعبة</th>
+
                             <td><input type="text" id="division" name="division" readonly></td>
+
                         </tr>
+
                     </table>
+
                     <div class="extra-fields">
+
                         <div>
+
                             <label for="extra1">حاله الطالب</label>
+
                             <input type="text" id="extra1" name="extra1" value="ناجح">
+
                         </div>
+
                     </div>
+
                 </div>
+
                 <div class="student-grades">
+
                     <table>
+
                         <tr>
+
                             <th>المادة</th>
+
                             <th>الدرجة</th>
+
                         </tr>
+
                         <tr class="color-row">
+
                             <td>اللغة العربية</td>
+
                             <td><input type="text" id="arabic" name="arabic" readonly></td>
+
                         </tr>
+
                         <tr class="color-row">
+
                             <td>اللغة الأجنبية الأولى</td>
+
                             <td><input type="text" id="firstForeignLanguage" name="firstForeignLanguage" readonly></td>
+
                         </tr>
+
                         <tr class="color-row">
+
                             <td>اللغة الأجنبية الثانية</td>
+
                             <td><input type="text" id="secondForeignLanguage" name="secondForeignLanguage" readonly></td>
+
                         </tr>
+
                         <tr class="color-row">
+
                             <td>مجموع الرياضيات البحتة</td>
+
                             <td><input type="text" id="pureMath" name="pureMath" value="غير مقرر" readonly></td>
+
                         </tr>
+
                         <tr class="color-row">
+
                             <td>التاريخ</td>
+
                             <td><input type="text" id="history" name="history" value="غير مقرر" readonly></td>
+
                         </tr>
+
                         <tr class="color-row">
+
                             <td>الجغرافيا</td>
+
                             <td><input type="text" id="geography" name="geography" value="غير مقرر" readonly></td>
+
                         </tr>
+
                         <tr class="color-row">
+
                             <td>الفلسفة والمنطق</td>
+
                             <td><input type="text" id="philosophy" name="philosophy" value="غير مقرر" readonly></td>
+
                         </tr>
+
                         <tr class="color-row">
+
                             <td>علم النفس والاجتماع</td>
+
                             <td><input type="text" id="psychology" name="psychology" value="غير مقرر" readonly></td>
+
                         </tr>
+
                         <tr class="color-row">
+
                             <td>الكيمياء</td>
+
                             <td><input type="text" id="chemistry" name="chemistry" readonly></td>
+
                         </tr>
+
                         <tr class="color-row">
+
                             <td>الأحياء</td>
+
                             <td><input type="text" id="biology" name="biology" value="غير مقرر" readonly></td>
+
                         </tr>
+
                         <tr class="color-row">
+
                             <td>الجيولوجيا وعلوم البيئة</td>
+
                             <td><input type="text" id="geology" name="geology" value="غير مقرر" readonly></td>
+
                         </tr>
+
                         <tr class="color-row">
+
                             <td>الرياضيات التطبيقية</td>
+
                             <td><input type="text" id="appliedMath" name="appliedMath" value="غير مقرر" readonly></td>
+
                         </tr>
+
                         <tr class="color-row">
+
                             <td>الفيزياء</td>
+
                             <td><input type="text" id="physics" name="physics" readonly></td>
+
                         </tr>
+
                         <tr class="color-row">
+
                             <td>مجموع الدرجات</td>
+
                             <td><input type="text" id="totalGrades" name="totalGrades" readonly></td>
+
                         </tr>
+
                     </table>
+
                 </div>
+
             </div>
+
             <div class="contact-section">
+
                 <p>لتعديل درجاتك، كلم الدكتور:</p>
+
                 <a href="https://t.me/Almster" target="_blank">تواصل عبر تليجرام</a>
+
             </div>
+
         </form>
+
     </div>
 
+
+
     <script>
+
         document.addEventListener("DOMContentLoaded", function() {
-            const inputs = document.querySelectorAll('input[readonly]');
-            inputs.forEach(input => {
-                input.addEventListener('click', function() {
-                    input.removeAttribute('readonly');
-                });
-                input.addEventListener('blur', function() {
-                    input.setAttribute('readonly', true);
-                });
-            });
 
             const seatNumber = localStorage.getItem('seatNumber');
+
             const name = localStorage.getItem('name');
+
             const school = localStorage.getItem('school');
+
             const division = localStorage.getItem('division');
 
+
+
             if(seatNumber && name && school && division) {
+
                 document.getElementById('seatNumber').value = seatNumber;
+
                 document.getElementById('name').value = name;
+
                 document.getElementById('school').value = school;
+
                 document.getElementById('division').value = division;
 
+
+
                 if (localStorage.getItem(`grades_${seatNumber}`)) {
+
                     const grades = JSON.parse(localStorage.getItem(`grades_${seatNumber}`));
+
                     document.getElementById('arabic').value = grades.arabic;
+
                     document.getElementById('firstForeignLanguage').value = grades.firstForeignLanguage;
+
                     document.getElementById('secondForeignLanguage').value = grades.secondForeignLanguage;
-                    document.getElementById('pureMath').value = grades.pureMath;
-                    document.getElementById('history').value = grades.history;
-                    document.getElementById('geography').value = grades.geography;
-                    document.getElementById('philosophy').value = grades.philosophy;
-                    document.getElementById('psychology').value = grades.psychology;
+
                     document.getElementById('chemistry').value = grades.chemistry;
+
                     document.getElementById('biology').value = grades.biology;
+
                     document.getElementById('geology').value = grades.geology;
-                    document.getElementById('appliedMath').value = grades.appliedMath;
+
                     document.getElementById('physics').value = grades.physics;
+
+                    document.getElementById('pureMath').value = grades.pureMath;
+
+                    document.getElementById('appliedMath').value = grades.appliedMath;
+
+                    document.getElementById('history').value = grades.history;
+
+                    document.getElementById('geography').value = grades.geography;
+
+                    document.getElementById('philosophy').value = grades.philosophy;
+
+                    document.getElementById('psychology').value = grades.psychology;
+
                     document.getElementById('totalGrades').value = grades.totalGrades;
+
+                } else {
+
+                    const grades = {};
+
+                    grades.arabic = Math.floor(Math.random() * (68 - 63 + 1)) + 63;
+
+                    grades.firstForeignLanguage = Math.floor(Math.random() * (46 - 40 + 1)) + 40;
+
+                    grades.secondForeignLanguage = Math.floor(Math.random() * (36 - 32 + 1)) + 32;
+
+
+
+                    if (division === "علمي علوم") {
+
+                        grades.chemistry = Math.floor(Math.random() * (48 - 41 + 1)) + 41;
+
+                        grades.physics = Math.floor(Math.random() * (45 - 38 + 1)) + 38;
+
+                        grades.biology = Math.floor(Math.random() * (46 - 43 + 1)) + 43;
+
+                        grades.geology = Math.floor(Math.random() * (55 - 50 + 1)) + 50;
+
+                        grades.pureMath = "غير مقرر";
+
+                        grades.appliedMath = "غير مقرر";
+
+                        grades.history = "غير مقرر";
+
+                        grades.geography = "غير مقرر";
+
+                        grades.philosophy = "غير مقرر";
+
+                        grades.psychology = "غير مقرر";
+
+                    } else if (division === "علمي رياضة") {
+
+                        grades.chemistry = Math.floor(Math.random() * (44 - 39 + 1)) + 39;
+
+                        grades.physics = Math.floor(Math.random() * (45 - 38 + 1)) + 38;
+
+                        grades.pureMath = Math.floor(Math.random() * (46 - 40 + 1)) + 40;
+
+                        grades.appliedMath = Math.floor(Math.random() * (55 - 50 + 1)) + 50;
+
+                        grades.biology = "غير مقرر";
+
+                        grades.geology = "غير مقرر";
+
+                        grades.history = "غير مقرر";
+
+                        grades.geography = "غير مقرر";
+
+                        grades.philosophy = "غير مقرر";
+
+                        grades.psychology = "غير مقرر";
+
+                    } else if (division === "أدبي") {
+
+                        grades.history = Math.floor(Math.random() * (48 - 42 + 1)) + 42;
+
+                        grades.geography = Math.floor(Math.random() * (45 - 40 + 1)) + 40;
+
+                        grades.philosophy = Math.floor(Math.random() * (55 - 50 + 1)) + 50;
+
+                        grades.psychology = Math.floor(Math.random() * (46 - 40 + 1)) + 40;
+
+                        grades.chemistry = "غير مقرر";
+
+                        grades.biology = "غير مقرر";
+
+                        grades.geology = "غير مقرر";
+
+                        grades.pureMath = "غير مقرر";
+
+                        grades.appliedMath = "غير مقرر";
+
+                        grades.physics = "غير مقرر";
+
+                    }
+
+
+
+                    const totalGrades = grades.arabic + grades.firstForeignLanguage + grades.secondForeignLanguage +
+
+                                        (grades.chemistry !== "غير مقرر" ? grades.chemistry : 0) +
+
+                                        (grades.physics !== "غير مقرر" ? grades.physics : 0) +
+
+                                        (grades.biology !== "غير مقرر" ? grades.biology : 0) +
+
+                                        (grades.geology !== "غير مقرر" ? grades.geology : 0) +
+
+                                        (grades.pureMath !== "غير مقرر" ? grades.pureMath : 0) +
+
+                                        (grades.appliedMath !== "غير مقرر" ? grades.appliedMath : 0) +
+
+                                        (grades.history !== "غير مقرر" ? grades.history : 0) +
+
+                                        (grades.geography !== "غير مقرر" ? grades.geography : 0) +
+
+                                        (grades.philosophy !== "غير مقرر" ? grades.philosophy : 0) +
+
+                                        (grades.psychology !== "غير مقرر" ? grades.psychology : 0);
+
+
+
+                    grades.totalGrades = totalGrades;
+
+
+
+                    document.getElementById('arabic').value = grades.arabic;
+
+                    document.getElementById('firstForeignLanguage').value = grades.firstForeignLanguage;
+
+                    document.getElementById('secondForeignLanguage').value = grades.secondForeignLanguage;
+
+                    document.getElementById('chemistry').value = grades.chemistry;
+
+                    document.getElementById('biology').value = grades.biology;
+
+                    document.getElementById('geology').value = grades.geology;
+
+                    document.getElementById('physics').value = grades.physics;
+
+                    document.getElementById('pureMath').value = grades.pureMath;
+
+                    document.getElementById('appliedMath').value = grades.appliedMath;
+
+                    document.getElementById('history').value = grades.history;
+
+                    document.getElementById('geography').value = grades.geography;
+
+                    document.getElementById('philosophy').value = grades.philosophy;
+
+                    document.getElementById('psychology').value = grades.psychology;
+
+                    document.getElementById('totalGrades').value = grades.totalGrades;
+
+
+
+                    localStorage.setItem(`grades_${seatNumber}`, JSON.stringify(grades));
+
                 }
+
             }
+
         });
+
     </script>
+
 </body>
+
 </html>
